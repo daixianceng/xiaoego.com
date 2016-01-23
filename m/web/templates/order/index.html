@@ -1,0 +1,30 @@
+<ion-view view-title="订单">
+  <ion-content class="content-gray">
+    <div ng-if="!UserService.isGuest">
+      <ion-refresher pulling-text="下拉刷新..." on-refresh="refresh()"></ion-refresher>
+      <ion-list>
+        <div ng-repeat="order in OrderService.items">
+          <div class="item item-header">
+            {{order.store_name}}<span class="pull-right">（{{OrderService.getStatusMsg(order.status)}}）</span>
+          </div>
+          <ion-item class="item-remove-animate item-thumbnail-left item-icon-right item-order" nav-direction="forward" type="item-text-wrap" ng-href="#/order/detail/{{order.id}}">
+            <img ng-src="{{Params.imageBaseUrl}}/cover/{{order.first_cover}}">
+            <h2>{{order.order_sn}}</h2>
+            <h2 class="assertive">&yen;{{order.real_fee}}</h2>
+            <p>{{order.created_at * 1000 | date:'yyyy-MM-dd HH:mm'}}</p>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+            <div ng-if="removeable(order)">
+              <ion-option-button class="button-assertive" ng-click="remove(order)">删除</ion-option-button>
+            </div>
+          </ion-item>
+        </div>
+        <div class="note padding" ng-if="Helper.isEmptyObject(OrderService.items)">您还没有订单~</div>
+      </ion-list>
+      <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" on-infinite="loadMore()"></ion-infinite-scroll>
+    </div>
+    <div class="padding text-center" ng-if="UserService.isGuest">
+      <p class="note">您还没有登录，请登录后查看订单</p>
+      <a class="button button-outline button-positive" nav-direction="forward" href="#/login">登录/注册</a>
+    </div>
+  </ion-content>
+</ion-view>

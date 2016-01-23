@@ -1,0 +1,18 @@
+<ion-view view-title="收货地址">
+  <ion-nav-buttons side="primary">
+    <a class="button button-clear" nav-direction="back" href="#/tab/i"><i class="icon ion-ios-arrow-back"></i> 返回</a>
+  </ion-nav-buttons>
+  <ion-content class="content-gray">
+    <ion-refresher pulling-text="下拉刷新..." on-refresh="refresh()"></ion-refresher>
+    <ion-list>
+      <a class="button button-full button-light icon-left ion-ios-plus-outline text-left" nav-direction="forward" href="#/i/address/create">新增收货地址</a>
+      <ion-item class="item-remove-animate item-icon-right" nav-direction="forward" type="item-text-wrap" ng-repeat="address in AddressService.all" ng-href="#/i/address/{{address.id}}">
+        <h2>{{address.consignee}}（{{AddressService.getGenderMsg(address.gender)}}）<span>{{address.cellphone}}</span></h2>
+        <p>{{address.school_name}} {{address.building_name}} {{address.room}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-option-button class="button-assertive" ng-click="remove(address)">删除</ion-option-button>
+      </ion-item>
+      <div class="note padding" ng-if="Helper.isEmptyObject(AddressService.all)">您还没有添加收货地址</div>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<ion-view view-title="首页">
+  <ion-content>
+    <ion-slide-box does-continue="true" auto-play="true">
+      <ion-slide>
+        <div class="box">
+          <img src="img/slide_1.jpg">
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box">
+          <img src="img/slide_2.jpg">
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box">
+          <img src="img/slide_3.jpg">
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+    <div class="padding">
+      <h2 class="home-header"><i class="ion ion-location"></i> 请选择所在学校</h2>
+      <ul class="list">
+        <li ng-repeat="(key, name) in SchoolService.all">
+          <a class="button button-outline button-block button-dark" ng-href="#/tab/school/{{key}}">{{name}}</a>
+        </li>
+      </ul>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,23 @@
+<ion-view view-title="手机验证">
+  <ion-nav-buttons side="primary">
+    <a class="button button-clear" nav-direction="back" href="#/i/account/mobile"><i class="icon ion-ios-arrow-back"></i> 返回</a>
+  </ion-nav-buttons>
+  <ion-content class="content-gray padding">
+    <form name="form" novalidate>
+      <ion-list class="list-inset">
+        <div class="alert alert-success alert-small">
+          验证码发送成功，请查看手机短信。
+        </div>
+        <div class="alert alert-warning alert-small" ng-hide="Helper.isEmptyObject(errors)">
+          <ul>
+            <li ng-repeat="message in errors">{{message}}</li>
+          </ul>
+        </div>
+        <label ng-class="['item item-input', {'label-invalid': form.verifyCode.$dirty && form.verifyCode.$invalid}]">
+          <input type="text" name="verifyCode" placeholder="手机验证码" required minlength="6" maxlength="6" ng-model="data.verifyCode">
+        </label>
+        <button class="button button-block button-balanced" type="button" ng-click="submit(data)" ng-disabled="!form.$dirty || form.$invalid">提交</button>
+      </ion-list>
+    </form>
+  </ion-content>
+</ion-view>

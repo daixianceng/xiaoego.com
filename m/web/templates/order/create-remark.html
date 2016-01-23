@@ -1,0 +1,17 @@
+<ion-view view-title="备注">
+  <ion-nav-buttons side="primary">
+    <a class="button button-clear" nav-direction="back" ng-click="Helper.back()"><i class="icon ion-ios-arrow-back"></i> 返回</a>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear" type="button" ng-click="save(data)" ng-disabled="form.$invalid">保存</button>
+  </ion-nav-buttons>
+  <ion-content class="content-gray padding">
+    <form name="form" novalidate>
+      <ion-list class="list-inset">
+        <label ng-class="['item item-input', {'label-invalid': form.remark.$dirty && form.remark.$invalid}]">
+          <textarea name="remark" placeholder="如商品口味、颜色、您的位置等信息。" rows="5" maxlength="255" ng-model="data.remark"></textarea>
+        </label>
+      </ion-list>
+    </form>
+  </ion-content>
+</ion-view>

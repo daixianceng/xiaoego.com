@@ -1,0 +1,28 @@
+<ion-view view-title="个人中心">
+  <ion-content class="content-gray">
+    <ion-list>
+      <ion-item class="item-icon-left item-icon-right" nav-direction="forward" type="item-text-wrap" href="#/i/account">
+        <i class="icon ion-person"></i>
+        <p>我的账户<span class="item-note" ng-if="!UserService.isGuest">{{AccountService.getSymbolMobile()}}</span></p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      <ion-item class="item-icon-left item-icon-right" nav-direction="forward" type="item-text-wrap" href="#/i/address">
+        <i class="icon ion-location"></i>
+        <p>收货地址</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      <div class="item item-divider"></div>
+      <ion-item class="item-icon-left item-icon-right" nav-direction="forward" type="item-text-wrap" href="#/help">
+        <i class="icon ion-ios-help"></i>
+        <p>帮助中心</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      <div class="item item-divider"></div>
+      <ion-item class="item-icon-left item-icon-right" nav-direction="forward" type="item-text-wrap" href="#/more">
+        <i class="icon ion-more"></i>
+        <p>更多</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

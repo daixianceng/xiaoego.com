@@ -1,0 +1,23 @@
+<ion-view>
+  <ion-nav-title>
+    <a class="button button-clear button-title icon-right ion-ios-arrow-forward" nav-direction="forward" href="#/school/switch">{{title}}</a>
+  </ion-nav-title>
+  <ion-content class="content-gray">
+    <ion-list>
+      <div ng-if="stores.length > 0">
+        <table class="table-fixed table-full">
+          <tr ng-repeat="group in stores">
+            <td ng-repeat="store in group">
+              <a class="item store-item" nav-direction="forward" type="item-text-wrap" ng-href="#/store/{{store.id}}">
+                <h2>{{store.name}}</h2>
+                <p>{{store.address}}</p>
+                <span class="store-status" ng-show="store.status === 'rest'">休息中</span>
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="note padding" ng-if="stores.length == 0">该学校暂时没有开通营业点！</div>
+    </ion-list>
+  </ion-content>
+</ion-view>

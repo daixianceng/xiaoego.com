@@ -1,0 +1,17 @@
+<ion-view view-title="切换学校">
+  <ion-nav-buttons side="primary">
+    <a class="button button-clear" nav-direction="back" ng-click="Helper.back()"><i class="icon ion-ios-arrow-back"></i> 返回</a>
+  </ion-nav-buttons>
+  <ion-content class="content-gray">
+    <ion-list>
+      <div ng-repeat="(key, name) in SchoolService.all">
+        <div ng-if="SchoolService.lastSchoolId == key">
+          <a class="item item-icon-right" nav-direction="back" ng-href="#/tab/school/{{key}}"><p>{{name}}<i class="icon ion-android-done"></i></p></a>
+        </div>
+        <div ng-if="SchoolService.lastSchoolId != key">
+          <a class="item" nav-direction="back" ng-href="#/tab/school/{{key}}"><p>{{name}}</p></a>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

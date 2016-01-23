@@ -1,0 +1,14 @@
+<ion-view view-title="性别">
+  <ion-nav-buttons side="primary">
+    <a class="button button-clear" nav-direction="back" href="#/i/account"><i class="icon ion-ios-arrow-back"></i> 返回</a>
+  </ion-nav-buttons>
+  <ion-content class="content-gray">
+    <ion-list>
+      <label class="item item-radio" ng-repeat="(key, name) in AccountService.genderList" ng-click="submit(data)">
+        <input type="radio" name="name" value="{{key}}" ng-model="data.gender">
+        <div class="item-content">{{name}}</div>
+        <i class="radio-icon ion-checkmark"></i>
+      </label>
+    </ion-list>
+  </ion-content>
+</ion-view>

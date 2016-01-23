@@ -1,0 +1,23 @@
+<ion-view view-title="意见反馈">
+  <ion-nav-buttons side="primary">
+    <a class="button button-clear" nav-direction="back" ng-click="Helper.back()"><i class="icon ion-ios-arrow-back"></i> 返回</a>
+  </ion-nav-buttons>
+  <ion-content class="content-gray padding">
+    <form name="form" novalidate>
+      <ion-list class="list-inset">
+        <div class="alert alert-warning alert-small" ng-hide="Helper.isEmptyObject(errors)">
+          <ul>
+            <li ng-repeat="message in errors">{{message}}</li>
+          </ul>
+        </div>
+        <label ng-class="['item item-input', {'label-invalid': form.content.$dirty && form.content.$invalid}]">
+          <textarea name="content" placeholder="请留下您的宝贵意见与建议（不少于5个字）。" rows="5" minlength="5" maxlength="255" required ng-model="data.content"></textarea>
+        </label>
+        <label ng-class="['item item-input', {'label-invalid': form.mobile.$dirty && form.mobile.$invalid}]">
+          <input type="text" name="mobile" placeholder="您的手机号码" required mobile ng-model="data.mobile">
+        </label>
+        <button class="button button-block button-balanced" ng-click="submit(data)" ng-disabled="!form.$dirty || form.$invalid">提交</button>
+      </ion-list>
+    </form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,33 @@
+<ion-view view-title="订单支付">
+  <ion-nav-buttons side="primary">
+    <a class="button button-clear" nav-direction="back" href="#/order/detail/{{order.id}}"><i class="icon ion-ios-arrow-back"></i> 返回</a>
+  </ion-nav-buttons>
+  <ion-content class="content-gray">
+    <ion-list>
+      <div class="alert alert-info alert-small" ng-if="order.status === 'unpaid'">该订单商品属于实时商品，请您在<countdown time="{{order.timeout * 1000}}" format="mm:ss" on-finish="orderTimeout()"></countdown>内完成支付。</div>
+      <div class="alert alert-warning alert-small" ng-if="order.status !== 'unpaid'">该订单已无法支付，请返回上一级。</div>
+      <ion-item type="item-text-wrap" class="no-padding">
+        <div class="row">
+          <p class="col col-33">订单编号</p>
+          <p class="col col-67">{{order.orderSn}}</p>
+        </div>
+        <div class="row">
+          <p class="col col-33">购买店铺</p>
+          <p class="col col-67">{{order.storeName}}</p>
+        </div>
+        <div class="row">
+          <p class="col col-33">应付款</p>
+          <p class="col col-67">&yen;{{order.realFee}}</p>
+        </div>
+        <div class="row">
+          <p class="col col-33">订单描述</p>
+          <p class="col col-67 wrap">{{order.description}}</p>
+        </div>
+      </ion-item>
+      <div ng-if="order.status === 'unpaid'">
+        <button class="button button-full button-light" ng-if="canUseWxpay" ng-click="pay('wx_pub')"><i class="p_one_icon p_one_icon_wechat"></i> 微信支付</button>
+        <button class="button button-full button-light" ng-click="pay('alipay_wap')"><i class="p_one_icon p_one_icon_alipay"></i> 支付宝</button>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

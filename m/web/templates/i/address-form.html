@@ -1,0 +1,44 @@
+<ion-view view-title="{{title}}">
+  <ion-nav-buttons side="primary">
+    <a class="button button-clear" nav-direction="back" ng-click="Helper.back()"><i class="icon ion-ios-arrow-back"></i> 返回</a>
+  </ion-nav-buttons>
+  <ion-content class="content-gray">
+    <form name="form" novalidate>
+      <ion-list>
+        <div class="alert alert-warning alert-small" ng-hide="Helper.isEmptyObject(errors)">
+          <ul>
+            <li ng-repeat="message in errors">{{message}}</li>
+          </ul>
+        </div>
+        <div class="item item-divider">联系人</div>
+        <label ng-class="['item item-input', {'label-invalid': form.consignee.$dirty && form.consignee.$invalid}]">
+          <span class="input-label">姓名</span>
+          <input class="text-right" type="text" name="consignee" required maxlength="12" ng-model="data.consignee">
+        </label>
+        <label ng-class="['item item-input item-select', {'label-invalid': form.gender.$dirty && form.gender.$invalid}]">
+          <div class="input-label">性别</div>
+          <select name="gender" ng-options="key as value for (key, value) in AddressService.genderList" required ng-model="data.gender"></select>
+        </label>
+        <label ng-class="['item item-input', {'label-invalid': form.cellphone.$dirty && form.cellphone.$invalid}]">
+          <span class="input-label">手机</span>
+          <input class="text-right" type="text" name="cellphone" required mobile ng-model="data.cellphone">
+        </label>
+        <div class="item item-divider">收货地址</div>
+        <label ng-class="['item item-input item-select', {'label-invalid': form.school_id.$dirty && form.school_id.$invalid}]">
+          <div class="input-label">学校</div>
+          <select name="school_id" ng-options="key as value for (key, value) in SchoolService.all" required ng-change="changeSchool(data.school_id)" ng-model="data.school_id"></select>
+        </label>
+        <label ng-class="['item item-input item-select', {'label-invalid': form.building_id.$dirty && form.building_id.$invalid}]">
+          <div class="input-label">宿舍/建筑</div>
+          <select name="building_id" ng-options="key as value for (key, value) in buildings" required ng-model="data.building_id"></select>
+        </label>
+        <label ng-class="['item item-input', {'label-invalid': form.room.$dirty && form.room.$invalid}]">
+          <span class="input-label">房间/地点</span>
+          <input class="text-right" type="text" name="room" required minlength="2" maxlength="12" ng-model="data.room">
+        </label>
+        <div class="item item-divider"></div>
+        <button class="button button-full button-balanced no-margin" ng-click="submit(data)" ng-disabled="!form.$dirty || form.$invalid">保存</button>
+      </ion-list>
+    </form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,185 @@
+<ion-view>
+  <ion-nav-title>{{title}}</ion-nav-title>
+  <ion-nav-buttons side="primary">
+    <a class="button button-clear" nav-direction="back" ng-click="Helper.back()"><i class="icon ion-ios-arrow-back"></i> 返回</a>
+  </ion-nav-buttons>
+  <ion-tabs class="tabs-icon-left tabs-top tabs-striped tabs-light tabs-color-assertive">
+    <ion-tab title="购物" icon-off="ion-ios-cart-outline" icon-on="ion-ios-cart">
+      <ion-nav-view>
+        <ion-view>
+          <ion-content class="content-gray shopping-category" delegate-handle="categoryScroll">
+            <div class="list">
+              <div ng-repeat="(key, cate) in categories" ng-class="['item', {active: category == 'c' + key}]" ng-click="scrollTo('c' + key)">{{cate}}</div>
+            </div>
+          </ion-content>
+          <ion-content id="content-{{store.id}}" class="shopping-goods" delegate-handle="goodsScroll" on-scroll-complete="goodsScrollComplete()">
+            <div class="list">
+              <div id="c{{key}}" class="cateblock" ng-repeat="(key, group) in goodsList">
+                <div class="item item-divider">{{categories[key]}}</div>
+                <div class="item item-thumbnail-left" ng-repeat="goods in group">
+                  <img ng-src="{{Params.imageBaseUrl}}/cover/{{goods.cover}}" ng-click="openGoods(goods)">
+                  <h4>{{goods.name}}</h4>
+                  <p><span>月售：{{goods.sales}}</span><span class="pull-right">库存：{{goods.surplus}}</span></p>
+                  <div class="goods-sale">
+                    <div class="price">&yen;{{goods.price}}<del ng-if="Helper.number(goods.price_original) > 0">{{goods.price_original}}</del></div>
+                    <div class="quantity">
+                      <button class="quantity-minus icon ion-minus-round" ng-click="subtract(goods.id)" ng-disabled="Helper.number(getCartGoodsCount(goods.id)) == 0"></button>
+                      <span class="quantity-count">{{getCartGoodsCount(goods.id)}}</span>
+                      <button class="quantity-plus icon ion-plus-round" ng-click="add(goods.id)" ng-disabled="Helper.number(getCartGoodsCount(goods.id)) >= Helper.number(goods.surplus)"></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ion-content>
+          <ion-footer-bar align-title="left" class="bar-light">
+            <div class="shopping-cart">
+              <div class="buttons">
+                <button class="button-icon button-cart icon ion-ios-cart" ng-click="modalCart.show()"></button>
+              </div>
+              <h1 class="title price">&yen;{{cart.volume}}</h1>
+              <div class="buttons">
+                <a class="button button-assertive" ng-if="store.status === 'rest'" disabled>休息中</a>
+                <div ng-if="store.status !== 'rest'">
+                  <a class="button button-assertive" ng-show="!UserService.isGuest && store.has_least && Helper.number(store.least_val) > Helper.number(cart.volume)" disabled>还差{{(Helper.number(store.least_val) - Helper.number(cart.volume)).toFixed(2)}}元</a>
+                  <a class="button button-assertive icon-right ion-ios-arrow-thin-right" nav-direction="forward" ng-href="#/order/create/{{store.id}}" ng-show="UserService.isGuest || !store.has_least || Helper.number(store.least_val) <= Helper.number(cart.volume)" ng-disabled="UserService.isGuest || cart.length == 0">选好了</a>
+                </div>
+              </div>
+            </div>
+          </ion-footer-bar>
+        </ion-view>
+      </ion-nav-view>
+    </ion-tab>
+    <ion-tab title="店铺详情" icon-off="ion-ios-information-outline" icon-on="ion-ios-information">
+      <ion-nav-view>
+        <ion-view>
+          <ion-content class="content-gray">
+            <div class="store-block">
+              <h2>{{store.name}}</h2>
+              <p ng-if="store.notice"><i class="ion ion-speakerphone"></i> {{store.notice}}</p>
+            </div>
+            <ul class="list">
+              <li class="item" ng-if="store.has_down">
+                <span class="feature feature-red">减</span> {{store.downMsg}}
+              </li>
+              <li class="item" ng-if="store.has_gift">
+                <span class="feature feature-orange">送</span> {{store.giftMsg}}
+              </li>
+              <li class="item" ng-if="store.has_book">
+                <span class="feature feature-blue-o">预</span> 支持预定
+              </li>
+              <li class="item" ng-if="!store.has_least">
+                <span class="feature feature-purple-o">零</span> 零元起送
+              </li>
+              <li class="item item-divider"></li>
+              <li class="item item-icon-left">
+                <i class="icon ion-ios-location-outline"></i> {{store.address}}
+              </li>
+              <li class="item item-icon-left" ng-if="store.hours">
+                <i class="icon ion-ios-clock-outline"></i> {{store.hours}}
+              </li>
+              <li class="item item-icon-left" ng-if="store.cellphone">
+                <i class="icon ion-iphone"></i> {{store.cellphone}}
+              </li>
+              <li class="item item-icon-left" ng-if="store.telephone">
+                <i class="icon ion-ios-telephone-outline"></i> {{store.telephone}}
+              </li>
+            </ul>
+          </ion-content>
+        </ion-view>
+      </ion-nav-view>
+    </ion-tab>
+  </ion-tabs>
+</ion-view>
+
+<script id="modal-goods.html" type="text/ng-template">
+  <ion-modal-view class="modal-goods">
+    <ion-content>
+      <button class="close icon ion-close-round" ng-click="modalGoods.hide()"></button>
+      <div ng-if="modalGoods.goods.images.length == 0">
+        <img ng-src="{{Params.goodsDefaultImageUrl}}">
+      </div>
+      <div ng-if="modalGoods.goods.images.length == 1">
+        <img ng-src="{{Params.imageBaseUrl}}/goods/{{modalGoods.goods.images[0].name}}">
+      </div>
+      <div ng-if="modalGoods.goods.images.length > 1">
+        <ion-slide-box does-continue="true" auto-play="true">
+          <ion-slide ng-repeat="image in modalGoods.goods.images">
+            <div class="box">
+              <img ng-src="{{Params.imageBaseUrl}}/goods/{{image.name}}">
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+      <div class="modal-goods-content">
+        <h2>{{modalGoods.goods.name}}</h2>
+        <p>【笑e购】{{modalGoods.goods.description}}</p>
+        <p><span>月售：{{modalGoods.goods.sales}}</span><span class="pull-right">库存：{{modalGoods.goods.surplus}}</span></p>
+        <div class="modal-goods-sale">
+          <div class="price">&yen;{{modalGoods.goods.price}}<del ng-if="Helper.number(modalGoods.goods.price_original) > 0">{{modalGoods.goods.price_original}}</del></div>
+          <div class="quantity">
+            <button class="quantity-minus icon ion-minus-round" ng-click="subtract(modalGoods.goods.id)" ng-disabled="Helper.number(getCartGoodsCount(modalGoods.goods.id)) == 0"></button>
+            <span class="quantity-count">{{getCartGoodsCount(modalGoods.goods.id)}}</span>
+            <button class="quantity-plus icon ion-plus-round" ng-click="add(modalGoods.goods.id)" ng-disabled="Helper.number(getCartGoodsCount(modalGoods.goods.id)) >= Helper.number(modalGoods.goods.surplus)"></button>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+<script id="modal-cart.html" type="text/ng-template">
+  <ion-modal-view class="modal-cart">
+    <ion-header-bar>
+      <div class="buttons">
+        <button class="button button-clear icon ion-arrow-down-c" ng-click="modalCart.hide()"></button>
+      </div>
+      <h1 class="title">购物车</h1>
+      <div class="buttons">
+        <button class="button button-clear" ng-click="clear()" ng-disabled="cart.length == 0">清空</button>
+      </div>
+    </ion-header-bar>
+    <ion-content class="content-gray">
+      <ion-list>
+        <div ng-repeat="(key, goods) in cart.goodsList">
+          <ion-item ng-if="goods.isExpired" class="item-thumbnail-left item-remove-animate">
+            <img ng-src="{{Params.imageBaseUrl}}/cover/{{goods.cover}}">
+            <h2>{{goods.name}}</h2>
+            <p>（商品已失效，请向左滑动删除）</p>
+            <ion-option-button class="button-assertive" ng-click="delete(key)">删除</ion-option-button>
+          </ion-item>
+          <ion-item ng-if="!goods.isExpired" class="item-thumbnail-left">
+            <img ng-src="{{Params.imageBaseUrl}}/cover/{{goods.cover}}">
+            <h2>{{goods.name}}</h2>
+            <p>月售：{{goods.sales}}</p>
+            <div class="goods-sale">
+              <div class="price">&yen;{{goods.price}}<del ng-if="Helper.number(goods.price_original) > 0">{{goods.price_original}}</del></div>
+              <div class="quantity">
+                <button class="quantity-minus icon ion-minus-round" ng-click="subtract(key)" ng-disabled="Helper.number(goods.count) == 0"></button>
+                <span class="quantity-count">{{goods.count}}</span>
+                <button class="quantity-plus icon ion-plus-round" ng-click="add(key)" ng-disabled="Helper.number(goods.count) >= Helper.number(goods.surplus)"></button>
+              </div>
+            </div>
+          </ion-item>
+        </div>
+        <div class="note padding" ng-if="UserService.isGuest">您还没有登录~</div>
+        <div class="note padding" ng-if="!UserService.isGuest && Helper.isEmptyObject(cart.goodsList)">购物车是空的~</div>
+      </ion-list>
+    </ion-content>
+    <ion-footer-bar align-title="left" class="bar-light">
+      <div class="shopping-cart">
+        <div class="buttons">
+          <button class="button-icon button-assertive button-cart active icon ion-ios-cart" ng-click="modalCart.hide()"></button>
+        </div>
+        <h1 class="title price">&yen;{{cart.volume}}</h1>
+        <div class="buttons">
+          <a class="button button-assertive" ng-if="store.status === 'rest'" disabled>休息中</a>
+          <div ng-if="store.status !== 'rest'">
+            <a class="button button-assertive" ng-show="!UserService.isGuest && store.has_least && Helper.number(store.least_val) > Helper.number(cart.volume)" disabled>还差{{(Helper.number(store.least_val) - Helper.number(cart.volume)).toFixed(2)}}元</a>
+            <a class="button button-assertive icon-right ion-ios-arrow-thin-right" nav-direction="forward" ng-click="modalCart.hide()" ng-href="#/order/create/{{store.id}}" ng-show="UserService.isGuest || !store.has_least || Helper.number(store.least_val) <= Helper.number(cart.volume)" ng-disabled="UserService.isGuest || cart.length == 0">选好了</a>
+          </div>
+        </div>
+      </div>
+    </ion-footer-bar>
+  </ion-modal-view>
+</script>

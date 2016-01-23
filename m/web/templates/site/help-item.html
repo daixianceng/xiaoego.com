@@ -1,0 +1,47 @@
+<ion-view view-title="问题">
+  <ion-nav-buttons side="primary">
+    <a class="button button-clear" nav-direction="back" ng-click="Helper.back()"><i class="icon ion-ios-arrow-back"></i> 返回</a>
+  </ion-nav-buttons>
+  <ion-content class="content-gray">
+    <div class="card" ng-if="id === '1'">
+      <div class="item item-divider">在线支付支持什么付款方式？</div>
+      <ion-item class="item-text-wrap">支付宝（Alipay）与微信支付，微信支付只可在微信浏览器中使用。</ion-item>
+    </div>
+    <div class="card" ng-if="id === '2'">
+      <div class="item item-divider">货到付款支持什么付款方式？</div>
+      <ion-item class="item-text-wrap">只支持现金。</ion-item>
+    </div>
+    <div class="card" ng-if="id === '3'">
+      <div class="item item-divider">能提供发票吗？</div>
+      <ion-item class="item-text-wrap">很抱歉，暂时还不能提供发票。</ion-item>
+    </div>
+    <div class="card" ng-if="id === '4'">
+      <div class="item item-divider">成功下单后，多久能送到？</div>
+      <ion-item class="item-text-wrap">在同一栋楼内，最快只需要5分钟即可送达。</ion-item>
+    </div>
+    <div class="card" ng-if="id === '5'">
+      <div class="item item-divider">你们的送货范围是？</div>
+      <ion-item class="item-text-wrap">同一个学校内的宿舍楼，建议选择您所在宿舍楼内（旁）的营业点来购买。</ion-item>
+    </div>
+    <div class="card" ng-if="id === '6'">
+      <div class="item item-divider">有配送费吗？</div>
+      <ion-item class="item-text-wrap">配送免费！</ion-item>
+    </div>
+    <div class="card" ng-if="id === '7'">
+      <div class="item item-divider">可以退货吗？</div>
+      <ion-item class="item-text-wrap">很抱歉，可以退换商品，不可退货。</ion-item>
+    </div>
+    <div class="card" ng-if="id === '8'">
+      <div class="item item-divider">可以上门取货吗？</div>
+      <ion-item class="item-text-wrap">可以，去购买的营业点说明一下自己的收货信息或订单号来提取。</ion-item>
+    </div>
+    <div class="card" ng-if="id === '9'">
+      <div class="item item-divider">忘记密码怎么办？</div>
+      <ion-item class="item-text-wrap">请使用电脑版至登录页面，点击左下角忘记密码链接，进入自助服务。</ion-item>
+    </div>
+    <div class="card" ng-if="id === '10'">
+      <div class="item item-divider">如何更换手机号？</div>
+      <ion-item class="item-text-wrap">进入“个人中心->我的帐号->手机”页面进行更换。</ion-item>
+    </div>
+  </ion-content>
+</ion-view>

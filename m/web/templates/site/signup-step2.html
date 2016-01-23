@@ -1,0 +1,24 @@
+<ion-view view-title="注册验证">
+  <ion-nav-buttons side="primary">
+    <a class="button button-clear" nav-direction="back" ng-click="Helper.back()"><i class="icon ion-ios-arrow-back"></i> 返回</a>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear" type="button" ng-click="sendMsg()">再次发送</button>
+  </ion-nav-buttons>
+  <ion-content class="content-gray padding">
+    <form name="form" novalidate>
+      <ion-list class="list-inset">
+        <div class="alert alert-success alert-small">短信发送成功，请耐心等待。</div>
+        <div class="alert alert-warning alert-small" ng-hide="Helper.isEmptyObject(errors)">
+          <ul>
+            <li ng-repeat="message in errors">{{message}}</li>
+          </ul>
+        </div>
+        <label ng-class="['item item-input', {'label-invalid': form.verifyCode.$dirty && form.verifyCode.$invalid}]">
+          <input type="text" placeholder="手机验证码" name="verifyCode" required minlength="6" maxlength="6" ng-model="data.verifyCode">
+        </label>
+        <button class="button button-block button-positive" type="button" ng-click="submit(data)" ng-disabled="!form.$dirty || form.$invalid">完成注册</button>
+      </ion-list>
+    </form>
+  </ion-content>
+</ion-view>

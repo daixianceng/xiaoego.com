@@ -1,0 +1,20 @@
+<ion-view view-title="昵称">
+  <ion-nav-buttons side="primary">
+    <a class="button button-clear" nav-direction="back" href="#/i/account"><i class="icon ion-ios-arrow-back"></i> 返回</a>
+  </ion-nav-buttons>
+  <ion-content class="content-gray padding">
+    <form name="form" novalidate>
+      <ion-list class="list-inset">
+        <div class="alert alert-warning alert-small" ng-hide="Helper.isEmptyObject(errors)">
+          <ul>
+            <li ng-repeat="message in errors">{{message}}</li>
+          </ul>
+        </div>
+        <label ng-class="['item item-input', {'label-invalid': form.nickname.$dirty && form.nickname.$invalid}]">
+          <input type="text" name="nickname" placeholder="昵称" required minlength="2" maxlength="20" ng-model="data.nickname">
+        </label>
+        <button class="button button-block button-balanced" ng-click="submit(data)" ng-disabled="!form.$dirty || form.$invalid">保存</button>
+      </ion-list>
+    </form>
+  </ion-content>
+</ion-view>

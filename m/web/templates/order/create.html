@@ -1,0 +1,65 @@
+<ion-view view-title="创建订单">
+  <ion-nav-buttons side="primary">
+    <a class="button button-clear" nav-direction="back" ng-click="Helper.back()"><i class="icon ion-ios-arrow-back"></i> 返回</a>
+  </ion-nav-buttons>
+  <ion-content class="content-gray">
+    <form name="form" novalidate>
+      <ion-list>
+        <div class="alert alert-success alert-small" ng-show="successMsg">{{successMsg}}</div>
+        <div class="alert alert-warning alert-small" ng-hide="Helper.isEmptyObject(errors)">
+          <ul>
+            <li ng-repeat="message in errors">{{message}}</li>
+          </ul>
+        </div>
+        <ion-item class="item-icon-right" nav-direction="forward" type="item-text-wrap" ng-href="#/order/create/address/{{store.school_id}}">
+          <div ng-if="data.addressId && (addressSelected = AddressService.getOne(data.addressId))">
+            <h2>{{addressSelected.consignee}}（{{AddressService.getGenderMsg(addressSelected.gender)}}）<span>{{addressSelected.cellphone}}</span></h2>
+            <p>{{addressSelected.school_name}} {{addressSelected.building_name}} {{addressSelected.room}}</p>
+          </div>
+          <h2 ng-if="!data.addressId">选择收货地址</h2>
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+        <div class="item item-divider"></div>
+        <label ng-class="['item item-radio', {'label-invalid': form.payment.$dirty && form.payment.$invalid}]">
+          <input type="radio" name="payment" value="online" required ng-model="data.payment">
+          <div class="item-content">在线支付</div>
+          <i class="radio-icon ion-checkmark"></i>
+        </label>
+        <label ng-class="['item item-radio', {'label-invalid': form.payment.$dirty && form.payment.$invalid}]">
+          <input type="radio" name="payment" value="offline" required ng-model="data.payment">
+          <div class="item-content">货到付款</div>
+          <i class="radio-icon ion-checkmark"></i>
+        </label>
+        <div class="item item-divider"></div>
+        <div ng-if="Params.enableNewDown && Helper.number(fee) >= Params.newDownUpper && AccountService.hasNewDown">
+          <label class="item item-input item-select">
+            <div class="input-label">新用户优惠</div>
+            <select name="newDown" ng-options="key as value for (key, value) in newDownItems" ng-change="updateRealFee()" ng-init="data.newDown = '1'" ng-model="data.newDown"></select>
+          </label>
+        </div>
+        <div ng-if="!Helper.isEmptyObject(preferentialItems)">
+          <label class="item item-input item-select">
+            <div class="input-label">选择优惠</div>
+            <select name="preferential" ng-options="key as value for (key, value) in preferentialItems" ng-change="updateRealFee()" ng-model="data.preferential"></select>
+          </label>
+        </div>
+        <div ng-if="store.has_book">
+          <label class="item item-input item-select">
+            <div class="input-label">送达时间</div>
+            <select name="bookTime" ng-options="key as value for (key, value) in bookTimeItems" ng-model="data.bookTime"></select>
+          </label>
+        </div>
+        <ion-item class="item-icon-right" nav-direction="forward" type="item-text-wrap" href="#/order/create/remark">
+          <h2>备注<span class="item-note">{{data.remark}}</span></h2>
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+      </ion-list>
+    </form>
+  </ion-content>
+  <ion-footer-bar align-title="left" class="bar-light">
+    <h1 class="title price"><span class="pull-left">应付款：&yen;{{realFee}}</span></h1>
+    <div class="buttons">
+      <a class="button button-assertive" nav-direction="forward" ng-click="submit(data)">立即下单</a>
+    </div>
+  </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,27 @@
+<ion-view view-title="注册">
+  <ion-nav-buttons side="primary">
+    <a class="button button-clear" nav-direction="back" ng-click="Helper.back()"><i class="icon ion-ios-arrow-back"></i> 返回</a>
+  </ion-nav-buttons>
+  <ion-content class="content-gray padding">
+    <form name="form" novalidate>
+      <ion-list class="list-inset">
+        <div class="alert alert-warning alert-small" ng-hide="Helper.isEmptyObject(errors)">
+          <ul>
+            <li ng-repeat="message in errors">{{message}}</li>
+          </ul>
+        </div>
+        <label ng-class="['item item-input', {'label-invalid': form.mobile.$dirty && form.mobile.$invalid}]">
+          <input type="text" placeholder="手机号" name="mobile" required mobile ng-model="data.mobile">
+        </label>
+        <label ng-class="['item item-input', {'label-invalid': form.password.$dirty && form.password.$invalid}]">
+          <input type="password" placeholder="密码" name="password" required password ng-model="data.password">
+        </label>
+        <div ng-class="['item item-input', {'invalid': form.captcha.$dirty && form.captcha.$invalid}]">
+          <input type="text" placeholder="验证码" name="captcha" required minlength="4" maxlength="4" ng-model="data.captcha">
+          <img ng-click="updateCaptcha()" ng-src="{{captchaUrl}}">
+        </div>
+        <button class="button button-block button-positive" type="button" ng-click="submit(data)" ng-disabled="!form.$dirty || form.$invalid">下一步 <i class="icon ion-ios-arrow-forward"></i></button>
+      </ion-list>
+    </form>
+  </ion-content>
+</ion-view>
