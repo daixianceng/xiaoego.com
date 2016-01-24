@@ -82,7 +82,7 @@ CREATE TABLE `t_admin` (
 
 LOCK TABLES `t_admin` WRITE;
 /*!40000 ALTER TABLE `t_admin` DISABLE KEYS */;
-INSERT INTO `t_admin` VALUES (1,'admin','Cosmo','djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz','$2y$13$t8ei8oClEZiZwxdEvcaNKu.DeOJcX1xsYekv1rHcWoocVCfUhkZm2',NULL,'male','daixianceng@gmail.com','15066851062','active',1433420037,1433652786);
+INSERT INTO `t_admin` VALUES (1,'admin','管理员','djzEmNQp6b82ZjedCfQZyF2NZNRKcfgz','$2y$13$t8ei8oClEZiZwxdEvcaNKu.DeOJcX1xsYekv1rHcWoocVCfUhkZm2',NULL,'male','admin@xiaoego.com','18851510363','active',1433420037,1433652786);
 /*!40000 ALTER TABLE `t_admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
