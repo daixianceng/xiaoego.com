@@ -34,6 +34,10 @@ composer install
 * `m.xiaoego.local`       => `xiaoego.com/m/web`
 * `image.xiaoego.local`   => `xiaoego.com/image`
 
+数据库
+----------
+该项目使用Mysql数据库开发，数据库文件：`xiaoego.com/common/data/db/db.sql`
+
 项目配置
 ----------
 配置文件在每个模块的`config/`目录下，这并不是全部：
@@ -41,6 +45,12 @@ composer install
 * `xiaoego.com/m/web/index.php`：移动端入口脚本，内有微信公众号`AppId`和`appSecret`配置；
 * `xiaoego.com/vendor/payment/wxpay/lib/WxPay.Config.php`：微信支付配置文件；
 * `xiaoego.com/vendor/payment/alipay/alipay.config.php`：支付宝配置文件。
+
+信息
+----------
+* 后端管理员帐号：用户名：`admin` 密码：`123123`；
+* 填充数据顺序：添加学校->添加建筑->添加营业点->添加营业点用户->添加商品；
+* 商品封面图片大小：400\*400px；商品详情图片大小：600\*400px。
 
 目录
 ----------
