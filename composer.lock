@@ -188,16 +188,16 @@
         },
         {
             "name": "bower-asset/fontawesome",
-            "version": "v4.4.0",
+            "version": "v4.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FortAwesome/Font-Awesome.git",
-                "reference": "e554555d73a44e0a7d11b0361ad7a5325a5f551c"
+                "reference": "fddd2c240452e6c8990c4ef75e0265b455aa7968"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/e554555d73a44e0a7d11b0361ad7a5325a5f551c",
-                "reference": "e554555d73a44e0a7d11b0361ad7a5325a5f551c",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/fddd2c240452e6c8990c4ef75e0265b455aa7968",
+                "reference": "fddd2c240452e6c8990c4ef75e0265b455aa7968",
                 "shasum": ""
             },
             "type": "bower-asset-library",
@@ -228,12 +228,12 @@
             "version": "2.1.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery.git",
+                "url": "https://github.com/jquery/jquery-dist.git",
                 "reference": "7751e69b615c6eca6f783a81e292a55725af6b85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jquery/jquery/zipball/7751e69b615c6eca6f783a81e292a55725af6b85",
+                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/7751e69b615c6eca6f783a81e292a55725af6b85",
                 "reference": "7751e69b615c6eca6f783a81e292a55725af6b85",
                 "shasum": ""
             },
@@ -413,16 +413,16 @@
         },
         {
             "name": "bower-asset/yii2-pjax",
-            "version": "v2.0.4",
+            "version": "v2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/jquery-pjax.git",
-                "reference": "3f20897307cca046fca5323b318475ae9dac0ca0"
+                "reference": "6818718408086db6bdcf33649cecb86b6b4f9b67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/3f20897307cca046fca5323b318475ae9dac0ca0",
-                "reference": "3f20897307cca046fca5323b318475ae9dac0ca0",
+                "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/6818718408086db6bdcf33649cecb86b6b4f9b67",
+                "reference": "6818718408086db6bdcf33649cecb86b6b4f9b67",
                 "shasum": ""
             },
             "require": {
@@ -640,19 +640,24 @@
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
-            "version": "v4.2.7",
+            "version": "v4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
-                "reference": "0468bbba9c28c1250aca83eba9b33e32ec135f78"
+                "reference": "cde72929649da55470e0a81a5e85921f80f28f29"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/kartik-v/bootstrap-fileinput/0468bbba9c28c1250aca83eba9b33e32ec135f78.zip",
-                "reference": "0468bbba9c28c1250aca83eba9b33e32ec135f78",
+                "url": "http://packagist.phpcomposer.com/files/kartik-v/bootstrap-fileinput/cde72929649da55470e0a81a5e85921f80f28f29.zip",
+                "reference": "cde72929649da55470e0a81a5e85921f80f28f29",
                 "shasum": ""
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "kartik\\plugins\\fileinput\\": ""
@@ -684,20 +689,20 @@
                 "progress",
                 "upload"
             ],
-            "time": "2015-09-13 17:39:44"
+            "time": "2016-01-25 16:55:20"
         },
         {
             "name": "kartik-v/php-date-formatter",
-            "version": "v1.3.1",
+            "version": "v1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/php-date-formatter.git",
-                "reference": "7d3dc3495dd10bd1909c0dfdecd673967019cc21"
+                "reference": "38984fb614f3ebc3605a8e369eee1406feea02a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/kartik-v/php-date-formatter/7d3dc3495dd10bd1909c0dfdecd673967019cc21.zip",
-                "reference": "7d3dc3495dd10bd1909c0dfdecd673967019cc21",
+                "url": "http://packagist.phpcomposer.com/files/kartik-v/php-date-formatter/38984fb614f3ebc3605a8e369eee1406feea02a4.zip",
+                "reference": "38984fb614f3ebc3605a8e369eee1406feea02a4",
                 "shasum": ""
             },
             "type": "library",
@@ -717,19 +722,18 @@
                     "homepage": "http://www.krajee.com/"
                 }
             ],
-            "description": "A JQuery datetime formatting and manipulation library using PHP date-time formats in javascript.",
+            "description": "A Javascript datetime formatting and manipulation library using PHP date-time formats.",
             "homepage": "https://github.com/kartik-v/php-date-formatter",
             "keywords": [
                 "date",
                 "datetime",
                 "formatter",
                 "javascript",
-                "jquery",
                 "php",
                 "php-date-formatter.js",
                 "time"
             ],
-            "time": "2015-06-18 15:14:51"
+            "time": "2015-12-21 18:22:51"
         },
         {
             "name": "kartik-v/yii2-datecontrol",
@@ -831,16 +835,16 @@
         },
         {
             "name": "kartik-v/yii2-krajee-base",
-            "version": "v1.7.7",
+            "version": "1.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-krajee-base.git",
-                "reference": "c0adff9d9762f4fd3bf0e7cd0000fcab0bf00f19"
+                "reference": "0c274e31e4392cbafc5fe158eae81738794e02ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/c0adff9d9762f4fd3bf0e7cd0000fcab0bf00f19",
-                "reference": "c0adff9d9762f4fd3bf0e7cd0000fcab0bf00f19",
+                "url": "http://packagist.phpcomposer.com/files/kartik-v/yii2-krajee-base/0c274e31e4392cbafc5fe158eae81738794e02ce.zip",
+                "reference": "0c274e31e4392cbafc5fe158eae81738794e02ce",
                 "shasum": ""
             },
             "require": {
@@ -873,7 +877,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-06-16 05:19:57"
+            "time": "2016-01-10 12:26:29"
         },
         {
             "name": "kartik-v/yii2-sortable",
@@ -924,16 +928,16 @@
         },
         {
             "name": "kartik-v/yii2-widget-datepicker",
-            "version": "v1.3.3",
+            "version": "v1.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-datepicker.git",
-                "reference": "368b181ef658c05707fe41dd16eee4d9ffd9da38"
+                "reference": "ff5a97576c49a72e0480f135d9e7ce1a18c788e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-datepicker/zipball/368b181ef658c05707fe41dd16eee4d9ffd9da38",
-                "reference": "368b181ef658c05707fe41dd16eee4d9ffd9da38",
+                "url": "http://packagist.phpcomposer.com/files/kartik-v/yii2-widget-datepicker/ff5a97576c49a72e0480f135d9e7ce1a18c788e6.zip",
+                "reference": "ff5a97576c49a72e0480f135d9e7ce1a18c788e6",
                 "shasum": ""
             },
             "require": {
@@ -969,20 +973,20 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-07-19 04:49:03"
+            "time": "2016-01-10 15:14:17"
         },
         {
             "name": "kartik-v/yii2-widget-datetimepicker",
-            "version": "v1.4.1",
+            "version": "v1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-datetimepicker.git",
-                "reference": "2ad71f7a8f4fdd03b999c4f50257f42b2c1b74fe"
+                "reference": "f4e7024e31da40460d1b36dc880c2ec20a21bf6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/kartik-v/yii2-widget-datetimepicker/2ad71f7a8f4fdd03b999c4f50257f42b2c1b74fe.zip",
-                "reference": "2ad71f7a8f4fdd03b999c4f50257f42b2c1b74fe",
+                "url": "http://packagist.phpcomposer.com/files/kartik-v/yii2-widget-datetimepicker/f4e7024e31da40460d1b36dc880c2ec20a21bf6e.zip",
+                "reference": "f4e7024e31da40460d1b36dc880c2ec20a21bf6e",
                 "shasum": ""
             },
             "require": {
@@ -1018,20 +1022,20 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-11-04 18:46:05"
+            "time": "2016-01-10 12:18:38"
         },
         {
             "name": "kartik-v/yii2-widget-fileinput",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-fileinput.git",
-                "reference": "bfed1b4201cc5fb3ac11563e1269f0ca64071e0b"
+                "reference": "36f9f493c2d814529f2a195422a8af2e020fc80c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/bfed1b4201cc5fb3ac11563e1269f0ca64071e0b",
-                "reference": "bfed1b4201cc5fb3ac11563e1269f0ca64071e0b",
+                "url": "http://packagist.phpcomposer.com/files/kartik-v/yii2-widget-fileinput/36f9f493c2d814529f2a195422a8af2e020fc80c.zip",
+                "reference": "36f9f493c2d814529f2a195422a8af2e020fc80c",
                 "shasum": ""
             },
             "require": {
@@ -1068,20 +1072,20 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-06-26 20:23:24"
+            "time": "2016-01-10 16:10:58"
         },
         {
             "name": "kartik-v/yii2-widget-select2",
-            "version": "v2.0.3",
+            "version": "v2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-select2.git",
-                "reference": "e72880e7e8dfc845c112ed7df275bf1c929be6db"
+                "reference": "701bf8069a85fafbac1ced54dcd00e579e60471b"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/kartik-v/yii2-widget-select2/e72880e7e8dfc845c112ed7df275bf1c929be6db.zip",
-                "reference": "e72880e7e8dfc845c112ed7df275bf1c929be6db",
+                "url": "http://packagist.phpcomposer.com/files/kartik-v/yii2-widget-select2/701bf8069a85fafbac1ced54dcd00e579e60471b.zip",
+                "reference": "701bf8069a85fafbac1ced54dcd00e579e60471b",
                 "shasum": ""
             },
             "require": {
@@ -1116,20 +1120,20 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-09-12 19:56:48"
+            "time": "2016-01-10 16:51:42"
         },
         {
             "name": "kartik-v/yii2-widget-timepicker",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-timepicker.git",
-                "reference": "432a8e166f89c2172fd5b86f6badcd943dbd3bc2"
+                "reference": "fa230caf281fbf6abea29a5dc1c28ebc005e4438"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-timepicker/zipball/432a8e166f89c2172fd5b86f6badcd943dbd3bc2",
-                "reference": "432a8e166f89c2172fd5b86f6badcd943dbd3bc2",
+                "url": "http://packagist.phpcomposer.com/files/kartik-v/yii2-widget-timepicker/fa230caf281fbf6abea29a5dc1c28ebc005e4438.zip",
+                "reference": "fa230caf281fbf6abea29a5dc1c28ebc005e4438",
                 "shasum": ""
             },
             "require": {
@@ -1165,20 +1169,20 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2014-11-08 20:01:29"
+            "time": "2016-01-12 09:50:39"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
-            "version": "2.8.17",
+            "version": "2.8.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/serbanghita/Mobile-Detect.git",
-                "reference": "b87da5f63a76e9615a0c74fcf168657b1ea7e41d"
+                "reference": "99e1c21c32104af2d035ff5d2fd8aff8cb29e27c"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/serbanghita/Mobile-Detect/b87da5f63a76e9615a0c74fcf168657b1ea7e41d.zip",
-                "reference": "b87da5f63a76e9615a0c74fcf168657b1ea7e41d",
+                "url": "http://packagist.phpcomposer.com/files/serbanghita/Mobile-Detect/99e1c21c32104af2d035ff5d2fd8aff8cb29e27c.zip",
+                "reference": "99e1c21c32104af2d035ff5d2fd8aff8cb29e27c",
                 "shasum": ""
             },
             "require": {
@@ -1219,20 +1223,20 @@
                 "mobile detector",
                 "php mobile detect"
             ],
-            "time": "2015-09-17 14:45:21"
+            "time": "2015-12-24 16:37:50"
         },
         {
             "name": "onokumus/metismenu",
-            "version": "v2.2.0",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/onokumus/metisMenu.git",
-                "reference": "aaa0c7c25eabef21851455cacf2345d07acbe429"
+                "reference": "bdee27da30b57550b53d1b2929d2ca355b2869a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/onokumus/metisMenu/aaa0c7c25eabef21851455cacf2345d07acbe429.zip",
-                "reference": "aaa0c7c25eabef21851455cacf2345d07acbe429",
+                "url": "http://packagist.phpcomposer.com/files/onokumus/metisMenu/bdee27da30b57550b53d1b2929d2ca355b2869a1.zip",
+                "reference": "bdee27da30b57550b53d1b2929d2ca355b2869a1",
                 "shasum": ""
             },
             "suggest": {
@@ -1261,7 +1265,7 @@
                 "plugin",
                 "web"
             ],
-            "time": "2015-09-27 16:21:51"
+            "time": "2016-01-25 20:05:53"
         },
         {
             "name": "pingplusplus/pingpp-php",
@@ -1269,12 +1273,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PingPlusPlus/pingpp-php.git",
-                "reference": "13643158b3b229d67b9bf99665f8d80144307aab"
+                "reference": "96c1854c5fff736238002c23e05d1e403c2d5c96"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/PingPlusPlus/pingpp-php/13643158b3b229d67b9bf99665f8d80144307aab.zip",
-                "reference": "13643158b3b229d67b9bf99665f8d80144307aab",
+                "url": "http://packagist.phpcomposer.com/files/PingPlusPlus/pingpp-php/96c1854c5fff736238002c23e05d1e403c2d5c96.zip",
+                "reference": "96c1854c5fff736238002c23e05d1e403c2d5c96",
                 "shasum": ""
             },
             "require": {
@@ -1309,24 +1313,24 @@
                 "mobile payment processing",
                 "pingpp"
             ],
-            "time": "2015-10-11 15:10:09"
+            "time": "2015-12-23 04:15:34"
         },
         {
             "name": "rmrevin/yii2-fontawesome",
-            "version": "2.12.0",
+            "version": "2.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rmrevin/yii2-fontawesome.git",
-                "reference": "51d33ec9d1d7edab2166f1d42668c1bc8d28c068"
+                "reference": "2efbfacb22be59f373d11a7e3dfa9213e2ba18a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/rmrevin/yii2-fontawesome/51d33ec9d1d7edab2166f1d42668c1bc8d28c068.zip",
-                "reference": "51d33ec9d1d7edab2166f1d42668c1bc8d28c068",
+                "url": "http://packagist.phpcomposer.com/files/rmrevin/yii2-fontawesome/2efbfacb22be59f373d11a7e3dfa9213e2ba18a9.zip",
+                "reference": "2efbfacb22be59f373d11a7e3dfa9213e2ba18a9",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/fontawesome": "4.4.*",
+                "bower-asset/fontawesome": "4.5.*",
                 "php": ">=5.4.0",
                 "yiisoft/yii2": "2.0.*"
             },
@@ -1348,9 +1352,9 @@
             ],
             "authors": [
                 {
-                    "name": "Roman Revin",
-                    "email": "xgismox@gmail.com",
-                    "homepage": "http://rmrevin.ru/"
+                    "name": "Revin Roman",
+                    "email": "roman@rmrevin.com",
+                    "homepage": "https://rmrevin.com/"
                 }
             ],
             "description": "Asset Bundle for Yii2 with Font Awesome",
@@ -1361,7 +1365,7 @@
                 "font",
                 "yii"
             ],
-            "time": "2015-08-15 16:50:16"
+            "time": "2015-11-26 15:24:53"
         },
         {
             "name": "swiftmailer/swiftmailer",
