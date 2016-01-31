@@ -3,15 +3,12 @@
 namespace store\controllers;
 
 use Yii;
-use yii\base\DynamicModel;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\BadRequestHttpException;
-use common\models\Purchase;
 use common\models\Apply;
-use common\models\ApplyGoods;
 use common\models\ApplyLog;
 use store\models\ApplySearch;
 

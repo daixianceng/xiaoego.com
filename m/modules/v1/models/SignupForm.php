@@ -2,8 +2,6 @@
 
 namespace m\modules\v1\models;
 
-use Yii;
-
 /**
  * Signup form
  */

@@ -5,8 +5,6 @@ namespace store\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use yii\widgets\ActiveForm;
 use common\models\Store;
 
 /**

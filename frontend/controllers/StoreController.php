@@ -10,7 +10,6 @@ use yii\web\Cookie;
 use yii\filters\VerbFilter;
 use common\models\Store;
 use common\models\Category;
-use common\models\Promotion;
 
 /**
  * Store controller

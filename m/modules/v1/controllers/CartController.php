@@ -3,8 +3,6 @@
 namespace m\modules\v1\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
-use yii\filters\VerbFilter;
 use common\filters\auth\HeaderParamAuth;
 use common\models\Goods;
 use common\models\CartGoods;

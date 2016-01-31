@@ -3,7 +3,6 @@
 namespace m\modules\v1\controllers;
 
 use Yii;
-use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use common\models\Feedback;
 use frontend\models\SignupMobileVerifyForm;

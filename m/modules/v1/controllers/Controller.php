@@ -4,7 +4,6 @@ namespace m\modules\v1\controllers;
 
 use Yii;
 use yii\web\Response;
-use common\filters\auth\HeaderParamAuth;
 
 class Controller extends \yii\rest\Controller
 {

@@ -2,7 +2,6 @@
 
 namespace m\modules\v1\controllers;
 
-use Yii;
 use yii\web\BadRequestHttpException;
 use common\models\Store;
 use common\models\Category;

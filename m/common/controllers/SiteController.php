@@ -2,8 +2,6 @@
 
 namespace m\common\controllers;
 
-use Yii;
-
 class SiteController extends Controller
 {
     /**

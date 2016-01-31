@@ -4,7 +4,6 @@ namespace store\models;
 
 use Yii;
 use yii\base\Model;
-use yii\base\InvalidParamException;
 use common\models\Apply;
 use common\models\ApplyGoods;
 use common\models\ApplyLog;

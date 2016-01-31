@@ -10,9 +10,6 @@ use yii\web\Response;
 use yii\web\BadRequestHttpException;
 use common\models\Purchase;
 use common\models\Goods;
-use common\models\Apply;
-use common\models\ApplyGoods;
-use common\models\ApplyLog;
 use store\models\CreateApplyForm;
 
 /**

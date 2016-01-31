@@ -3,7 +3,6 @@
 namespace frontend\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
 use yii\web\Cookie;
 use common\models\School;

@@ -7,7 +7,6 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use common\models\Order;
-use common\models\Member;
 use common\models\OrderVolume;
 use store\models\LoginForm;
 

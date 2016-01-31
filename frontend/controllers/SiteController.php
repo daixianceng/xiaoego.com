@@ -17,7 +17,6 @@ use yii\helpers\Url;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\widgets\ActiveForm;
-use common\models\Store;
 
 /**
  * Site controller

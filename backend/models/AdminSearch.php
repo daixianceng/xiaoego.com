@@ -2,7 +2,6 @@
 
 namespace backend\models;
 
-use Yii;
 use yii\data\ActiveDataProvider;
 use common\models\Admin;
 

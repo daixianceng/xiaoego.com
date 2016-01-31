@@ -2,7 +2,6 @@
 
 namespace m\modules\v1\controllers;
 
-use Yii;
 use common\models\GoodsImg;
 
 class GoodsController extends Controller

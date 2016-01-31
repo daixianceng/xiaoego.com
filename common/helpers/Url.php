@@ -3,7 +3,6 @@
 namespace common\helpers;
 
 use Yii;
-use common\models\Store;
 
 class Url extends \yii\helpers\Url
 {

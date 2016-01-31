@@ -6,7 +6,6 @@ use Yii;
 use yii\base\Model;
 use yii\base\InvalidParamException;
 use yii\base\InvalidValueException;
-use yii\helpers\Url;
 use common\models\Order;
 
 class PayOrderForm extends Model

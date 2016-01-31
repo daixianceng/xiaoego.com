@@ -2,10 +2,8 @@
 
 namespace m\modules\v1\controllers;
 
-use Yii;
 use yii\web\BadRequestHttpException;
 use common\models\School;
-use common\models\Store;
 use common\models\Building;
 
 class SchoolController extends Controller

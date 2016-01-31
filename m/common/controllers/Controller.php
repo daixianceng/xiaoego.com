@@ -2,7 +2,6 @@
 
 namespace m\common\controllers;
 
-use Yii;
 use yii\web\Response;
 
 class Controller extends \yii\rest\Controller
