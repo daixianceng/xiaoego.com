@@ -19,7 +19,7 @@ return [
         ],
         'smser' => [
             // changes if you using another smser.
-            'class' => 'daixianceng\smser\CloudSmser.php',
+            'class' => 'daixianceng\smser\CloudSmser',
             'username' => '',
             'password' => '',
             'useFileTransport' => true
