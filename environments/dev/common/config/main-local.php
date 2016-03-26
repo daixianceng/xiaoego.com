@@ -22,7 +22,7 @@ return [
             'class' => 'daixianceng\smser\CloudSmser',
             'username' => '',
             'password' => '',
-            'useFileTransport' => true
+            'fileMode' => true
         ]
     ],
 ];
