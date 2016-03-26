@@ -6,6 +6,8 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
+use yii\web\HttpException;
+use yii\base\UserException;
 use common\models\Order;
 use common\models\OrderVolume;
 use store\models\LoginForm;
@@ -144,7 +146,7 @@ class SiteController extends Controller
         } else {
             $code = $exception->getCode();
         }
-        if ($exception instanceof Exception) {
+        if ($exception instanceof \Exception) {
             $name = $exception->getName();
         } else {
             $name = '错误';
