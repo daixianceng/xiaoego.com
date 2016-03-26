@@ -135,7 +135,7 @@ class SiteController extends Controller
     public function actionError()
     {
         if (Yii::$app->user->isGuest) {
-            $this->layout = 'base';
+            $this->layout = 'simple';
         }
         
         if (($exception = Yii::$app->getErrorHandler()->exception) === null) {
