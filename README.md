@@ -111,6 +111,10 @@ tests                    contains various tests for the advanced application
     codeception/         contains tests developed with Codeception PHP Testing Framework
 ```
 
+二次开发
+----------
+请联系 `daixianceng@gmail.com`
+
 技术链接
 ----------
 * [Yii Framework](http://www.yiiframework.com/)
