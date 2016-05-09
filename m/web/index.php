@@ -2,22 +2,21 @@
 $userAgent = $_SERVER['HTTP_USER_AGENT'];
 $isWechat = strpos($userAgent, 'MicroMessenger') !== false;
 if ($isWechat) {
-    require(__DIR__ . '/../../vendor/pingplusplus/pingpp-php/init.php');
-    
-    $appId = '******************';
-    $appSecret = '********************************';
-    $currentUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    
-    if (!isset($_GET['code'])){
-        $url = \Pingpp\WxpubOAuth::createOauthUrlForCode($appId, $currentUrl);
-        header('Location: ' . $url);
-        exit();
-    } else {
-        if (session_status() != PHP_SESSION_ACTIVE) {
-            @session_start();
-        }
+    if (session_status() != PHP_SESSION_ACTIVE) {
+        @session_start();
+    }
+    if (!isset($_SESSION['wechatOpenid'])) {
+        require(__DIR__ . '/../../vendor/pingplusplus/pingpp-php/init.php');
+
+        $appId = '******************';
+        $appSecret = '********************************';
+        $currentUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         
-        if (!isset($_SESSION['wechatOpenid'])) {
+        if (!isset($_GET['code'])){
+            $url = \Pingpp\WxpubOAuth::createOauthUrlForCode($appId, $currentUrl);
+            header('Location: ' . $url);
+            exit();
+        } else {
             $code = $_GET['code'];
             $_SESSION['wechatOpenid'] = \Pingpp\WxpubOAuth::getOpenid($appId, $appSecret, $code);
         }
@@ -53,7 +52,7 @@ if ($isWechat) {
     <?php if ($isWechat) : ?>
     <script src="js/ap.js"></script>
     <script type="text/javascript">
-    window.isWechat = <?= $isWechat ?>;
+    window.isWechat = true;
     window.WC_OPEN_ID = '<?= $_SESSION['wechatOpenid'] ?>'
     </script>
     <?php endif; ?>
